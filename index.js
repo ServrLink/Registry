@@ -9,6 +9,7 @@ const passport = require('passport')
 var config = toml.parse(fs.readFileSync('config.toml', 'utf8'))
 
 // Create web server
+const host = config.server.host
 const port = config.server.port
 const app = require('./server.js')(config)
 
@@ -45,6 +46,6 @@ require('./rest/api/discord/getuuid.js')(app, pool)
 require('./rest/finish.js')(app, pool, redisClient)
 
 // Start server
-app.listen(port, () => {
-  console.log(`Listening on ${port}`)
+app.listen(port, host, () => {
+  console.log(`Listening on ${host}:${port}`)
 })
