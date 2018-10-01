@@ -1,0 +1,27 @@
+[server]
+port=8081
+  [server.ratelimit]
+  window=10 # 15 minutes
+  max=600 # Limits to 600 requests per 10 minutes
+
+[discord]
+clientId=""
+clientSecret=""
+redirectUri=""
+
+[redis]
+host="127.0.0.1"
+port=6379
+  [redis.auth]
+  useAuthentication=false
+  password=""
+
+[database]
+host="127.0.0.1"
+port=3306
+database="dislink"
+user=""
+password=""
+dialect="mysql" # mysql, postgres, mssql
+  [database.pool]
+  maxConnections=5
