@@ -14,6 +14,14 @@ module.exports = (app, pool) => {
     var escaped = pool.escape(uuid)
     var query = `SELECT * FROM dislink WHERE UUID=${escaped}`
     pool.query(query, (error, result) => {
+      if(error) {
+        res.send({
+          'success': false,
+          'registered': false
+        })
+        throw error
+      }
+      
       res.send({
         'success': true,
         'registered': result.length > 0

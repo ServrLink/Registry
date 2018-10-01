@@ -12,11 +12,19 @@ module.exports = (app, pool) => {
     }
 
     var escaped = pool.escape(id)
-    var query = `SELECT * FROM dislink WHERE ID=${escaped}`
+    var query = `SELECT ID FROM dislink WHERE ID=${escaped}`
     pool.query(query, (error, result) => {
+      if(error) {
+        res.send({
+          'success': false,
+          'registered': false
+        })
+        throw error
+      }
+
       res.send({
         'success': true,
-        'registered': result.length > 0
+        'registered': result[0].ID
       })
     })
   })

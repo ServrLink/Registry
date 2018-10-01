@@ -38,6 +38,8 @@ require('./rest/callback.js')(app)
 // API
 require('./rest/api/minecraft/isregistered.js')(app, pool)
 require('./rest/api/discord/isregistered.js')(app, pool)
+require('./rest/api/minecraft/getid.js')(app, pool)
+require('./rest/api/discord/getuuid.js')(app, pool)
 
 // After user is authenticated, setup database
 require('./rest/finish.js')(app, pool, redisClient)

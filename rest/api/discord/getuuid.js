@@ -1,22 +1,30 @@
 const isNumber = require('../../../utils/isnumber.js')
 
 module.exports = (app, pool) => {
-  app.get('/api/discord/isregistered', (req, res) => {
+  app.get('/api/discord/getuuid', (req, res) => {
     var id = req.query.id
     if(!isNumber(id)) {
       res.send({
         'success': false,
-        'registered': false
+        'uuid': ''
       })
       return
     }
 
     var escaped = pool.escape(id)
-    var query = `SELECT * FROM dislink WHERE ID=${escaped}`
+    var query = `SELECT UUID FROM dislink WHERE ID=${escaped}`
     pool.query(query, (error, result) => {
+      if(error) {
+        res.send({
+          'success': false,
+          'uuid': ''
+        })
+        throw error
+      }
+
       res.send({
         'success': true,
-        'registered': result.length > 0
+        'uuid': result[0].UUID
       })
     })
   })
