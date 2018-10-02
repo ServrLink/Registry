@@ -1,3 +1,5 @@
+finishRedirectUrl="https://servr.link/success.html"
+
 [server]
 host="0.0.0.0"
 port=8081
@@ -26,5 +28,3 @@ password=""
 dialect="mysql" # mysql, postgres, mssql
   [database.pool]
   maxConnections=5
-
-finishRedirectUrl="https://servr.link/success.html"
