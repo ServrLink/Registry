@@ -7,7 +7,7 @@ module.exports = (config) => {
   }
 
   if(config.redis.auth.useAuthentication) {
-    redisOptions[password] = config.redis.auth.password
+    redisOptions.password = config.redis.auth.password
   }
 
   console.log("Connecting to Redis")
