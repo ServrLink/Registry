@@ -26,3 +26,5 @@ password=""
 dialect="mysql" # mysql, postgres, mssql
   [database.pool]
   maxConnections=5
+
+finishRedirectUrl="https://servr.link/success.html"

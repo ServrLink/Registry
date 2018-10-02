@@ -1,4 +1,4 @@
-module.exports = (app, pool, redisClient) => {
+module.exports = (app, pool, redisClient, config) => {
   app.get('/finish', (req, res) => {
     var vkey = req.cookies['vkey']
     if(!vkey) {
@@ -30,7 +30,7 @@ module.exports = (app, pool, redisClient) => {
           }
         })
 
-        res.send("Success!")
+        res.redirect(config.finishRedirectUrl)
       } else { // Runs if the key is not in the cache
         res.send("Your link request timed out. Log into <b>disl.ink</b> again to generate a new token.")
       }

@@ -43,7 +43,7 @@ require('./rest/api/minecraft/getid.js')(app, pool)
 require('./rest/api/discord/getuuid.js')(app, pool)
 
 // After user is authenticated, setup database
-require('./rest/finish.js')(app, pool, redisClient)
+require('./rest/finish.js')(app, pool, redisClient, config)
 
 // Start server
 app.listen(port, host, () => {
