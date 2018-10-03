@@ -12,7 +12,7 @@ module.exports = (app, pool) => {
     }
 
     var escaped = pool.escape(uuid)
-    var query = `SELECT * FROM dislink WHERE UUID=${escaped};`
+    var query = `SELECT * FROM servrlink WHERE UUID=${escaped};`
     pool.query(query, (error, result) => {
       if(error) {
         res.send({

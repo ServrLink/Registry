@@ -21,7 +21,7 @@ module.exports = (app, pool, redisClient, config) => {
         // Just incase
         var escapedUUID = pool.escape(uuid)
         var escapedId = pool.escape(id)
-        var query = `INSERT INTO dislink(UUID, ID) VALUES(${escapedUUID}, ${escapedId}) ON DUPLICATE KEY UPDATE UUID = ${escapedUUID}, ID = ${escapedId}`
+        var query = `INSERT INTO servrlink(UUID, ID) VALUES(${escapedUUID}, ${escapedId}) ON DUPLICATE KEY UPDATE UUID = ${escapedUUID}, ID = ${escapedId}`
 
         pool.query(query, (error, results) => {
           if(error) {

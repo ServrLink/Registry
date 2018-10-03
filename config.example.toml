@@ -22,7 +22,7 @@ port=6379
 [database]
 host="127.0.0.1"
 port=3306
-database="dislink"
+database="servrlink"
 user=""
 password=""
 dialect="mysql" # mysql, postgres, mssql

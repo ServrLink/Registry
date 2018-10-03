@@ -13,7 +13,7 @@ module.exports = (config) => {
   })
 
   console.log("Setting up tables")
-  pool.query("CREATE TABLE IF NOT EXISTS dislink(UUID VARCHAR(36) UNIQUE, ID BIGINT(20) UNIQUE);")
+  pool.query("CREATE TABLE IF NOT EXISTS servrlink(UUID VARCHAR(36) UNIQUE, ID VARCHAR(20) UNIQUE);")
 
   return pool
 }
